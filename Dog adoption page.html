@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dog adoption page</title>
+    <style>
+      div{
+        border: 1px solid grey;
+        width: max-content;
+        padding: 10px;
+        margin: 15px 50px;
+      }
+      h3{
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+
+    <script defer>
+      class Dog {
+        constructor(name, picture, age, favoriteToys) {
+          this.name = name;
+          this.picture = picture;
+          this.age = age;
+          this.favoriteToys = favoriteToys;
+        }
+
+        convertToDogYears() {
+          return this.age * 7;
+        }
+      }
+
+      const dogs = [
+        new Dog("Fido", "img/Picture1.PNG", 2, [
+          "tennis ball",
+          "chew toy",
+        ]),
+        new Dog("Buddy", "img/Picture2.PNG", 1, ["bone", "rope toy"]),
+        new Dog("Charlie", "img/Picture3.PNG", 3, [
+          "squeaky toy",
+          "plush toy",
+        ]),
+      ];
+
+      function renderDog(dog) {
+        document.write(
+          `<div><h3>Name: ${dog.name}<br>Age: Your doggie is ${dog.convertToDogYears()} years old in dog years!</h3><img src="${dog.picture}" alt="dog pic"><h3>fave toys: ${dog.favoriteToys}</h3></div>`
+        );
+      }
+
+      for (const dog of dogs) {
+        const dogElement = renderDog(dog);
+      }
+    </script>
+    
+  </body>
+</html>
